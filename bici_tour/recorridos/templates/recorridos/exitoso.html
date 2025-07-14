@@ -1,0 +1,34 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo %}Personas Inscritas{% endblock %}
+
+{% block contenido %}
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Lista de Personas Inscritas</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Ciudad</th>
+          <th>Estado</th>
+          <th>Recorrido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ persona.nombre }}</td>
+          <td>{{ persona.correo }}</td>
+          <td>{{ persona.telefono }}</td>
+          <td>{{ persona.ciudad }}</td>
+          <td>{{ persona.estado }}</td>
+          <td>{{ persona.recorrido }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+
