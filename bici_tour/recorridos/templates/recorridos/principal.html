@@ -1,0 +1,60 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+
+<!-- HERO -->
+<section class="hero text-center py-5 bg-light">
+    <div class="container">
+        <button class="btn btn-primary btn-lg">
+            Ver Recorridos Próximos
+        </button>
+    </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h2>¿Quiénes Somos?</h2>
+        <p class="lead">
+            Somos una empresa comprometida con promover el ciclismo y la conexión con la naturaleza. Organizamos recorridos seguros, guiados y llenos de aventura.
+        </p>
+        <a href="#" class="btn btn-outline-success">Saber más</a>
+    </div>
+</section>
+
+<!-- RECORRIDOS DINÁMICOS EN TARJETAS -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Recorridos Próximos</h2>
+        <div class="row g-4">
+            {% for recorrido in recorridos %}
+                <div class="col-md-4">
+                    <div class="card card-recorrido h-100">
+                        {% if recorrido.fotografia %}
+                            <img src="{{ recorrido.fotografia.url }}" class="card-img-top" alt="Foto de {{ recorrido.ciudad }}">
+                        {% else %}
+                            <img src="{% static 'inicio/images/default.jpg' %}" class="card-img-top" alt="Sin imagen">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ recorrido.ciudad }} - {{ recorrido.estado }}</h5>
+                            <p class="card-text">
+                                <strong>Fecha:</strong> {{ recorrido.fecha }}<br>
+                                <strong>Kilómetros:</strong> {{ recorrido.kilometros }} km<br>
+                                <strong>Costo:</strong> ${{ recorrido.costo }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12 text-center">
+                    <p class="text-muted">No hay recorridos disponibles por el momento.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

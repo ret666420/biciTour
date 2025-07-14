@@ -1,0 +1,58 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+
+{% block titulo %}Preinscripción{% endblock %}
+
+{% block contenido %}
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Formulario de Preinscripción</h2>
+
+        {% if recorrido %}
+        <div class="mb-4 text-center">
+            <h5>Te estás inscribiendo al recorrido:</h5>
+            <p class="lead">{{ recorrido.ciudad }} - {{ recorrido.estado }} | {{ recorrido.fecha }}</p>
+        </div>
+        {% endif %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_nombre" class="form-label">Nombre</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Correo Electrónico</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_telefono" class="form-label">Teléfono</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_ciudad" class="form-label">Ciudad</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_estado" class="form-label">Estado</label>
+                    </div>
+
+                    {% if not recorrido %}
+                    <div class="mb-3">
+                        <label for="id_recorrido" class="form-label">Seleccionar Recorrido</label>
+                    </div>
+                    {% endif %}
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success">Enviar Preinscripción</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
