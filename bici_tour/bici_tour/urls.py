@@ -10,6 +10,7 @@ urlpatterns = [
     path('detalle_recorrido/', views.detalle_recorrido, name='detalle_recorrido'),
     path('preinscripcion/', recorridos_views.preinscripcion, name='preinscripcion'),  # <-- Cambia el name aquí
     path('exitoso/', recorridos_views.exitoso, name='exitoso'),  # <-- Cambia el name aquí
+    path('nosotros/', recorridos_views.nosotros, name='nosotros'),  # <-- Cambia el name aquí
 
 
 ]

@@ -21,3 +21,6 @@ def preinscripcion(request):
 
 def exitoso(request):
     return render(request, "recorridos/exitoso.html") 
+
+def nosotros(request):
+    return render(request, "recorridos/nosotros.html")
